@@ -243,6 +243,7 @@ COPYLEFT_LICENSE_INCLUDE = 'GPL* LGPL*'
   # Re-create the poky dir from archive
   echo "Extracting upstream Yocto tools in the $poky_dir directory from archive"
   rm -rf $poky_dir
+  wget -O $top_repo_dir/device-software/utils/poky-daisy-11.0.1.tar.bz2 https://github.com/ii/edison-src/releases/download/ww05-15/poky-daisy-11.0.1.tar.bz2
   tar -xjf $top_repo_dir/device-software/utils/poky-daisy-11.0.1.tar.bz2
   mv poky-daisy-11.0.1 $poky_dir
 
@@ -261,13 +262,17 @@ COPYLEFT_LICENSE_INCLUDE = 'GPL* LGPL*'
   mingw_dir=$poky_dir/meta-mingw
   echo "Unpacking Mingw layer to poky/meta-mingw/ directory from archive"
   mkdir -p $mingw_dir
+  wget -O $top_repo_dir/device-software/utils/mingw-daisy.tar.bz2 https://github.com/ii/edison-src/releases/download/ww05-15/mingw-daisy.tar.bz2
   ( cd $mingw_dir && tar -xjf $top_repo_dir/device-software/utils/mingw-daisy.tar.bz2)
 
   darwin_dir=$poky_dir/meta-darwin
   echo "Unpacking Darwin layer to poky/meta-darwin/ directory from archive"
   mkdir -p $darwin_dir
+  wget -O $top_repo_dir/device-software/utils/darwin-daisy.tar.bz2 https://github.com/ii/edison-src/releases/download/ww05-15/darwin-daisy.tar.bz2
   ( cd $darwin_dir && tar -xjf $top_repo_dir/device-software/utils/darwin-daisy.tar.bz2)
 
+  mkdir -p $top_repo_dir/device-software/meta-edison-middleware/recipes-devtools/xdk-daemon/files
+  wget -O $top_repo_dir/device-software/meta-edison-middleware/recipes-devtools/xdk-daemon/files/xdk-daemon-0.0.27.tar.bz2 https://github.com/ii/edison-src/releases/download/ww05-15/xdk-daemon-0.0.27.tar.bz2
   if [[ $my_sdk_host == win* ]]
   then
     do_append_layer $top_repo_dir/device-software/meta-mingw
