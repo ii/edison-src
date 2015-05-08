@@ -46,6 +46,8 @@ IMAGE_FEATURES += "debug-tweaks"
 IMAGE_INSTALL += "connman"
 IMAGE_INSTALL += "connman-client"
 IMAGE_INSTALL += "connman-tools"
+IMAGE_INSTALL += "connman-init-systemd"
+IMAGE_INSTALL += "ap-mode-toggle"
 IMAGE_INSTALL += "wireless-tools"
 IMAGE_INSTALL += "wpa-supplicant"
 IMAGE_INSTALL += "hostapd-daemon"
@@ -65,11 +67,10 @@ IMAGE_INSTALL += "i2c-tools"
 IMAGE_INSTALL += "watchdog-sample"
 IMAGE_INSTALL += "pwr-button-handler"
 IMAGE_INSTALL += "blink-led"
-IMAGE_INSTALL += "first-install"
+IMAGE_INSTALL += "post-install"
 IMAGE_INSTALL += "resize-rootfs"
 IMAGE_INSTALL += "systemd-analyze"
 IMAGE_INSTALL += "wget"
-IMAGE_INSTALL += "ota-update"
 
 # Allows to enable OpenMP feature
 IMAGE_INSTALL += "libgomp"
@@ -111,8 +112,8 @@ IMAGE_INSTALL += "iperf"
 # Add pulseaudio
 IMAGE_INSTALL += "pulseaudio-server libpulsecore libpulsecommon libpulse libpulse-simple pulseaudio-misc pulseaudio-service"
 
-# Add Mplayer
-IMAGE_INSTALL += "mplayer"
+#Add Gstreamer
+IMAGE_INSTALL += "gstreamer1.0 gstreamer1.0-meta-base gstreamer1.0-meta-audio"
 
 # Those are necessary to manually create partitions and file systems on the eMMC
 IMAGE_INSTALL += "parted"
@@ -124,7 +125,46 @@ IMAGE_INSTALL += "tzdata"
 # SWIG
 IMAGE_INSTALL += "swig"
 
+
+# Edison Arduino stuff
+IMAGE_INSTALL += "clloader"
+
+
+# Edison Middleware stuff
+IMAGE_INSTALL += "packagegroup-core-buildessential"
+IMAGE_INSTALL += "iotkit-opkg"
+IMAGE_INSTALL += "zeromq-dev"
+IMAGE_INSTALL += "cppzmq-dev"
+IMAGE_INSTALL += "paho-mqtt-dev"
+IMAGE_INSTALL += "mdns-dev"
+IMAGE_INSTALL += "iotkit-comm-js"
+IMAGE_INSTALL += "iotkit-comm-c-dev"
+IMAGE_INSTALL += "iotkit-agent"
+IMAGE_INSTALL += "iotkit-lib-c-dev"
+IMAGE_INSTALL += "xdk-daemon"
+IMAGE_INSTALL += "oobe"
+
+# mosquitto and dependencies
+IMAGE_INSTALL += "mosquitto-dev"
+IMAGE_INSTALL += "mosquitto-clients"
+
+# node and sub-components
+IMAGE_INSTALL += "nodejs-dev"
+IMAGE_INSTALL += "nodejs-npm"
+
+# MRAA
+IMAGE_INSTALL += "mraa-dev"
+IMAGE_INSTALL += "mraa-doc"
+
+# UPM
+IMAGE_INSTALL += "upm-dev"
+
+
+
 # INTEL MCU FW
 IMAGE_INSTALL += "mcu-fw-load"
 IMAGE_INSTALL += "mcu-fw-bin"
+
+# nfs
+IMAGE_INSTALL += "nfs-utils"
 
